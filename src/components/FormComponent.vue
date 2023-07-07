@@ -72,7 +72,8 @@ export default {
   methods: {
     submitForm() {
       if (this.$refs.form.checkValidity()) {
-        this.$emit('emit-form', this.formData);
+        this.$store.dispatch('submitFormData', this.formData);
+        //this.$emit('emit-form', this.formData);
         this.resetForm();
       } else {
         this.$refs.form.classList.add('was-validated');

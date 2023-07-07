@@ -14,12 +14,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(user, index) in users" :key="index">
+            <tr v-for="(user, index) in formData" :key="index">
               <td>{{ user.nombre }}</td>
               <td>{{ user.apellido }}</td>
               <td>{{ user.edad }}</td>
               <td>{{ user.email }}</td>
-              <td>{{ user.cursos.join(', ') }}</td>
+              <td>{{ user.cursos }}</td>
             </tr>
           </tbody>
         </table>
@@ -29,8 +29,26 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
-  props: ['users']
+  // props: ['users']
+  computed: {
+    ...mapState(['formData'])
+    // formData() {
+    //   return this.$store.state.formData;
+    // }
+  },
+  mounted() {
+    this.fetchData();
+  },
+  methods: {
+    fetchData() {
+      this.$store.dispatch('fetchFormData');
+    }
+  }
+  // created() {
+  //   this.$store.dispatch('fetchFormData');
+  // }
 };
 </script>
 

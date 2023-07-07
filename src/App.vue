@@ -1,7 +1,7 @@
 <template>
   <main>
-    <FormComponent @emit-form="addUser" />
-    <TableComponent :users="users" />
+    <FormComponent />
+    <TableComponent />
   </main>
 </template>
 
@@ -15,15 +15,15 @@ export default {
     TableComponent,
     FormComponent
   },
-  data() {
-    return {
-      users: []
-    };
-  },
-  methods: {
-    addUser(user) {
-      this.users.push(user);
-    }
-  }
+  // data() {
+  //   return {
+  //     users: []
+  //   };
+  // },
+  // methods: {
+  //   addUser(user) {
+  //     this.users.push(user);
+  //   }
+  // }
 };
 </script>
